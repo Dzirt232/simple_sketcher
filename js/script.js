@@ -44,15 +44,9 @@ var hexDigits = new Array
 
 function convertToHex(rgb) {
 rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-if (rgb[1] >=15) {
-	rgb[1] -=15;
-}
-if (rgb[2] >=15) {
-	rgb[2] -= 15;
-}
-if (rgb[3] >=15) {
-	rgb[3] -=15;
-}
+rgb[1] -= Math.floor(rgb[1] * 0.2);
+rgb[2] -= Math.floor(rgb[2] * 0.2);
+rgb[3] -= Math.floor(rgb[3] * 0.2);
 return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
 
